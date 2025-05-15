@@ -1,7 +1,7 @@
 name: Build Kernel - WSA
 on:
   push:
-    branches: ["main", "ci", "checkci"]
+    branches: ["next", "ci", "checkci"]
     paths:
       - ".github/workflows/build-kernel-wsa.yml"
       - ".github/workflows/wsa-kernel.yml"
