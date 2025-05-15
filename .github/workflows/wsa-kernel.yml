@@ -43,10 +43,10 @@ jobs:
           ubuntu-version: "16.04"
           cached: ${{ steps.cache-llvm.outputs.cache-hit }}
 
-      - name: Checkout KernelSU
+      - name: Checkout KernelSU-Next
         uses: actions/checkout@v4
         with:
-          path: KernelSU
+          path: KernelSU-Next
           fetch-depth: 0
 
       - name: Setup kernel source
