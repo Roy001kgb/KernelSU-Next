@@ -66,7 +66,7 @@ jobs:
       - name: Setup KernelSU
         working-directory: WSA-Linux-Kernel
         run: |
-          echo "[+] KernelSU setup"
+          echo "[+] KernelSU  setup"
           KERNEL_ROOT=$GITHUB_WORKSPACE/WSA-Linux-Kernel
           echo "[+] KERNEL_ROOT: $KERNEL_ROOT"
           echo "[+] Copy KernelSU driver to $KERNEL_ROOT/drivers"
