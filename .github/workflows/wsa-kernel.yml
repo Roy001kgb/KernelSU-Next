@@ -94,6 +94,7 @@ jobs:
           declare -A ARCH_MAP=(["x86_64"]="x64" ["arm64"]="arm64")
           cp configs/wsa/config-wsa-${ARCH_MAP[${{ inputs.arch }}]} .config
           echo "[+] Enabling KernelSU SUSFS"
+          echo "CONFIG_KSU=y" >> .config
           echo "CONFIG_KSU_SUSFS=y" >> .config
 
           make olddefconfig
