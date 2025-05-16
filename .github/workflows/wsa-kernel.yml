@@ -52,8 +52,7 @@ jobs:
       - name: Setup kernel source
         uses: actions/checkout@v4
         with:
-          repository: microsoft/WSA-Linux-Kernel
-          ref: android-lts/latte-2/${{ inputs.version }}
+          repository: Roy001kgb/WSA-Linux-Kernel
           path: WSA-Linux-Kernel
 
       - name: Setup Ccache
@@ -84,13 +83,6 @@ jobs:
           echo "VERSION: $VERSION"
           echo "kernelsu_version=$VERSION" >> $GITHUB_ENV
 
-      - name: Add susfs files to kernel source
-        run: |
-           # Download susfs.h
-           curl -L "https://gitlab.com/simonpunk/susfs4ksu/-/raw/master/kernel_patches/include/linux/susfs.h?ref_type=heads" -o $GITHUB_WORKSPACE/WSA-Linux-Kerne/include/linux/susfs.h
-
-           # Download susfs.c
-           curl -L "https://gitlab.com/simonpunk/susfs4ksu/-/raw/master/kernel_patches/fs/susfs.c?ref_type=heads" -o $GITHUB_WORKSPACE/WSA-Linux-Kerne/fs/susfs.c
       - name: Build Kernel
         working-directory: WSA-Linux-Kernel
         run: |
