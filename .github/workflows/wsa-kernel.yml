@@ -84,6 +84,13 @@ jobs:
           echo "VERSION: $VERSION"
           echo "kernelsu_version=$VERSION" >> $GITHUB_ENV
 
+      - name: Add susfs files to kernel source
+        run: |
+           # Download susfs.h
+           curl -L "https://gitlab.com/simonpunk/susfs4ksu/-/raw/master/kernel_patches/include/linux/susfs.h?ref_type=heads" -o "$KERNEL_ROOT/include/linux/susfs.h"
+
+           # Download susfs.c
+           curl -L "https://gitlab.com/simonpunk/susfs4ksu/-/raw/master/kernel_patches/fs/susfs.c?ref_type=heads" -o "$KERNEL_ROOT/fs/susfs.c"
       - name: Build Kernel
         working-directory: WSA-Linux-Kernel
         run: |
